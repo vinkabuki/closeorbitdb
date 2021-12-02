@@ -1,0 +1,17 @@
+{
+  "name": "closeorbitdb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "get-port": "^5.1.1",
+    "ipfs-core": "^0.12.2",
+    "orbit-db": "^0.28.0",
+    "tmp": "^0.2.1"
+  }
+}
