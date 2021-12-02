@@ -1,5 +1,4 @@
-name: Lint and tests
-
+name: check
 on:
   push:
     branches: [ master ]
@@ -13,6 +12,6 @@ jobs:
 
     steps:
       - name: install dependencies
-        run: npm ci
+        run: npm install
       - name: start
         run: npm run start
