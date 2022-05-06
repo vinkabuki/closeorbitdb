@@ -44,21 +44,31 @@ const main = async () => {
   const orbitdb1 = await OrbitDB.createInstance(ipfs1, { directory: dir1.name })
   const orbitdb2 = await OrbitDB.createInstance(ipfs2, { directory: dir2.name })
 
-  const kev = await orbitdb1.keyvalue('kev', {
-    accessController: {
-      write: ['*']
-    }
-  })
-  const kev2 = await orbitdb2.keyvalue('kev', {
+  const kev = await orbitdb1.log('kev', {
     accessController: {
       write: ['*']
     }
   })
 
+  kev.events.on('write', () => {
+    console.log('Adding message')
+  })
+
+  await kev.add('testEntry')
+
+  const kev2 = await orbitdb2.log('kev', {
+    accessController: {
+      write: ['*']
+    }
+  })
+
+  console.log('After creating stores')
+
   await orbitdb1.stop()
   await orbitdb2.stop()
   await ipfs1.stop()
   await ipfs2.stop()
+  console.log('after stopping everything')
 }
 
 main()
