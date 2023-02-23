@@ -10,8 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "get-port": "^5.1.1",
-    "ipfs-core": "^0.12.2",
-    "orbit-db": "^0.28.0",
+    "ipfs-core": "^0.18.0",
+    "orbit-db": "^0.29.0",
     "tmp": "^0.2.1"
-  }
+  },
+  "overrides": {
+		"orbit-db": {
+			"ipfs-pubsub-peer-monitor": "vinkabuki/ipfs-pubsub-peer-monitor#038af76f22e6c902dab4a855b24273707ce17d94"
+		}
+	}
 }
